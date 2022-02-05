@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+		<head>
+				<meta charset="UTF-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Enviar archivos - Instituto Yabotí</title>
+				<script src="js.js"></script>
+				<style>
+						* {
+								margin: 10px 0 10px 0;
+								font-family: sans;
+						}
+						form, details {
+								margin: 20px;
+								padding: 1vw 20vw 3vw 20vw;
+								display: block;
+								text-align: center;
+								background-color: #f6f5f4;
+								border: 1px solid black;
+						}
+						br {
+								margin: 20px;
+						}
+						summary {
+								cursor: pointer;
+						}
+				</style>
+		</head>
+		<body onload="obtener_lista_alumnos()">
+
+				<form id="form_enviar" method="POST" enctype="multipart/form-data" action="enviar.php" onsubmit="return comprobar_nombre()">
+						<h1>Instituto Yabotí</h1>
+						<h2>Entrega de archivos</h1>
+						<hr />
+						
+						<label for="asignatura">Asignatura:&emsp;</label>
+						<select id="asignatura" type="text" name="asignatura" required="required" onchange="seleccionar_lista_alumnos();" autocomplete="off">
+								<option selected="selected" disabled="disabled" required="required" value="">Seleccionar: ...</option>
+								<option value="II">II - Introducción a la informática (3º)</option>
+								<option value="PL">PL - Programación Lógica (4º)</option>
+								<option value="POO">POO- Programación Orientada a Objetos (5º)</option>
+								<option value="SBD">SBD - Sistemas de Bases de Datos (5º)</option>
+						</select>
+						<br />
+						
+						<label for="nombre">APELLIDOS, Nombres:&emsp;</label>
+						<input id="nombre" type="text" name="nombre" required="required" placeholder="Escribir para buscar..." list="lista_alumnos" autocomplete="off" />
+						<datalist id="lista_alumnos"></datalist>
+						<br />
+												
+						<label for="archivo">Archivo:&emsp;</label>
+						<input id="archivo" type="file" name="archivo[]" multiple="multiple" autocomplete="off" />
+						<br />
+								
+						<label for="texto">Texto:&emsp;</label><br />
+						<textarea id="texto" name="texto" placeholder="Pegar aquí el texto copiado, si es necesario." cols="45" rows="10" autocomplete="off"></textarea>
+						<br />
+						
+						<input id="btn_enviar" type="submit" value="✓	 Enviar archivo" />
+				</form>
+				
+				<details>
+						<summary><b>Actividades</b></summary>
+								
+						<ul>
+								<li><a href="consignas/ii-20211018.html" target="_blank">II</a></li>
+								<li><a href="consignas/pl_20211025.html" target="_blank">PL</a></li>
+								<li><a href="consignas/poo_20211027_parcial.html" target="_blank">POO</a></li>
+								<li hidden="hidden"><a href="consignas/ii-a.html" target="_blank">SBD</a></li>
+						</ul>
+				</details>
+				
+		</body>
+</html>
